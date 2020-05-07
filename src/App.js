@@ -2,18 +2,22 @@
  * @Author: vuvivian
  * @Date: 2020-05-07 14:16:50
  * @LastEditors: vuvivian
- * @LastEditTime: 2020-05-07 15:08:11
+ * @LastEditTime: 2020-05-07 16:41:05
  * @Descripttion: 入口文件
  * @FilePath: /covid19-with-react-hooks/src/App.js
  */
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import GlobalStats from "./components/GlobalStats";
+import CountriesChart from "./components/CountriesChart";
+import SelectDataKey from "./components/SelectDataKey";
 
 const BASE_URL = "https://corona.lmao.ninja/v2";
 
 function App() {
   const [globalStats, setGlobalStats] = useState({});
+  const [key, setKey] = useState('cases');
+  const [countries, setCountries] = useState([])
 
   // 第二个参数使用空数组可以确保 Effect 只会在组件初次渲染后执行
   useEffect(() => {
@@ -33,10 +37,22 @@ function App() {
     return () => clearInterval(intervalId);
   }, []);
 
+  useEffect (() => {
+    const fetchCountries = async () => {
+      const response = await fetch(`${BASE_URL}/countries?sort=${key}`);
+      const data = await response.json();
+      setCountries(data.slice(0, 10));
+      console.log(countries);
+    };
+    fetchCountries();
+  }, [key]);
+  
   return (
     <div className="App">
       <h1>COVID-19</h1>
       <GlobalStats stats={globalStats} />
+      <SelectDataKey onChange={(e) => setKey(e.target.value)}/>   
+      <CountriesChart data={countries} dataKey={key} />
     </div>
   );
 }
