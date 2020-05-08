@@ -2,7 +2,7 @@
  * @Author: vuvivian
  * @Date: 2020-05-07 20:45:37
  * @LastEditors: vuvivian
- * @LastEditTime: 2020-05-08 14:12:37
+ * @LastEditTime: 2020-05-08 14:56:37
  * @Descripttion: 确诊病例 Cases、死亡病例 Deaths 和治愈病例 Recovered的历史趋势图
  * @FilePath: /covid19-with-react-hooks/src/components/HistoryChart.jsx
  */

@@ -2,25 +2,23 @@
  * @Author: vuvivian
  * @Date: 2020-05-08 11:45:58
  * @LastEditors: vuvivian
- * @LastEditTime: 2020-05-08 14:11:42
+ * @LastEditTime: 2020-05-08 14:57:34
  * @Descripttion: 历史趋势组
  * @FilePath: /covid19-with-react-hooks/src/components/HistoryChartGroup.jsx
  */
-import React, { useState } from "react";
+import React, { useContext } from "react";
 
 import HistoryChart from "./HistoryChart";
 import transformHistory  from "../tools/util";
+import { AppDispatch } from "../App";
 
-const HistoryChartGroup = ({history = {}}) => {
-  const [lastDays, setLastDays] = useState({
-    cases: 30,
-    deaths: 30,
-    recovered: 30
-  });
-  
+const HistoryChartGroup = ({history = {}, lastDays = {}}) => {
+
+  const dispatch = useContext(AppDispatch);
+
   const handleLastDaysChange = (e, key) => {
     e.persist();
-    setLastDays((prev) => ({ ...prev, [key]: e.target.value}));
+    dispatch({ type: "SET_LASTDAYS", key, days: e.target.value });
   };
   return (
     <div>
