@@ -2,7 +2,7 @@
  * @Author: vuvivian
  * @Date: 2020-05-07 20:45:37
  * @LastEditors: vuvivian
- * @LastEditTime: 2020-05-08 12:47:28
+ * @LastEditTime: 2020-05-08 14:12:37
  * @Descripttion: 确诊病例 Cases、死亡病例 Deaths 和治愈病例 Recovered的历史趋势图
  * @FilePath: /covid19-with-react-hooks/src/components/HistoryChart.jsx
  */
@@ -24,7 +24,6 @@ const TITLE2COLOR = {
 const HistoryChart = ({title, data, lastDays, onLastDaysChange}) => {
   const colorKey = `color${title}`;
   const color = TITLE2COLOR[title];
-  
   return (
     <div>
       <AreaChart width={750} height={150} data={data.slice(-lastDays)}

@@ -2,7 +2,7 @@
  * @Author: vuvivian
  * @Date: 2020-05-07 16:55:49
  * @LastEditors: vuvivian
- * @LastEditTime: 2020-05-07 17:34:12
+ * @LastEditTime: 2020-05-08 13:46:45
  * @Descripttion: 自定义hook
  * @FilePath: /covid19-with-react-hooks/src/hooks/useCoronaAPI.jsx
  */

@@ -2,16 +2,16 @@
  * @Author: vuvivian
  * @Date: 2020-05-07 15:39:33
  * @LastEditors: vuvivian
- * @LastEditTime: 2020-05-07 16:19:13
+ * @LastEditTime: 2020-05-08 12:49:58
  * @Descripttion: 展示多个国家的相关数据直方图
  * @FilePath: /covid19-with-react-hooks/src/components/CountriesChart.jsx
  */
 import React from "react";
 import {BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar} from "recharts";
 
-const CountriesChart = ({data, dataKey}) => {
+const CountriesChart = ({data, dataKey, onClick}) => {
   return (
-    <BarChart width={730} height={250} data={data}>
+    <BarChart width={730} height={250} data={data} onClick={onClick}>
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="country" />
       <YAxis />
